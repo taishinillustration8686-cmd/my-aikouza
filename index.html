@@ -53,7 +53,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:h
   .price-wrap{padding:40px 20px}
   .btn-line{font-size:15px;padding:14px 24px}
   .s-inner{padding:0 16px}
-  .svc-grid,.tools-grid,.pain-grid{grid-template-columns:1fr}
+  .svc-grid,.tools-grid,.pain-grid,.price-grid{grid-template-columns:1fr}
 }
 
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-family:var(--mono);letter-spacing:0.22em;
@@ -222,17 +222,20 @@ section{position:relative;z-index:1}
 
 /* ─ PRICE ─ */
 #price{padding:110px 0;text-align:center}
-.price-wrap{max-width:540px;margin:44px auto 0;background:var(--surf);border:1px solid var(--border-gold);border-radius:8px;padding:50px 38px;position:relative;overflow:hidden}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:44px auto 0;align-items:start}
+.price-wrap{background:var(--surf);border:1px solid var(--border-gold);border-radius:8px;padding:50px 28px 36px;position:relative;overflow:hidden}
 .price-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(201,168,76,0.09),transparent 60%)}
-.price-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));color:var(--bg);font-size:10px;font-weight:700;letter-spacing:0.2em;padding:5px 20px;border-radius:0 0 8px 8px;font-family:var(--mono);text-transform:uppercase}
-.price-name{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--gold);margin:26px 0 22px;position:relative}
-.price-num{font-family:var(--serif);font-size:clamp(48px,9vw,74px);font-weight:900;background:linear-gradient(135deg,var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.price-unit{font-size:19px;color:var(--gold);font-weight:700;vertical-align:bottom;position:relative;top:-8px}
-.price-tax{font-size:12px;color:var(--muted);margin-bottom:24px;font-family:var(--mono)}
-.price-feats{list-style:none;text-align:left;display:flex;flex-direction:column;gap:11px;margin-bottom:28px;position:relative}
-.price-feats li{display:flex;align-items:flex-start;gap:10px;font-size:14px}
+.price-wrap.popular{border-color:var(--gold);box-shadow:0 0 40px rgba(201,168,76,0.22)}
+.price-wrap.popular::before{background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(201,168,76,0.18),transparent 60%)}
+.price-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));color:var(--bg);font-size:10px;font-weight:700;letter-spacing:0.2em;padding:5px 20px;border-radius:0 0 8px 8px;font-family:var(--mono);text-transform:uppercase;white-space:nowrap}
+.price-name{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--gold);margin:26px 0 18px;position:relative}
+.price-num{font-family:var(--serif);font-size:clamp(36px,4vw,54px);font-weight:900;background:linear-gradient(135deg,var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.price-unit{font-size:15px;color:var(--gold);font-weight:700;display:inline-block;margin-top:8px}
+.price-tax{font-size:11px;color:var(--muted);margin-bottom:20px;font-family:var(--mono)}
+.price-feats{list-style:none;text-align:left;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;position:relative}
+.price-feats li{display:flex;align-items:flex-start;gap:10px;font-size:13px}
 .pfc{color:var(--cyan);font-family:var(--mono);flex-shrink:0;margin-top:1px}
-.consult-box{background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);border-radius:6px;padding:14px 18px;font-size:14px;color:var(--cyan);margin-bottom:26px;position:relative}
+.consult-box{background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);border-radius:6px;padding:14px 18px;font-size:13px;color:var(--cyan);margin-bottom:22px;position:relative}
 
 /* ─ FAQ ─ */
 #faq{padding:110px 0;background:var(--bg2)}
@@ -515,23 +518,62 @@ section{position:relative;z-index:1}
   <div class="s-inner">
     <div class="reveal" style="text-align:center">
       <span class="s-label">// Pricing</span>
-      <h2 class="s-title">シンプルな<em>1プラン</em></h2>
+      <h2 class="s-title">あなたに合わせた<em>3プラン</em></h2>
       <div class="divbar" style="margin:14px auto 0"></div>
     </div>
-    <div class="price-wrap reveal">
-      <div class="price-badge">6-Month Program</div>
-      <div class="price-name">AIマンツーマン個別講座</div>
-      <div><span class="price-num">¥330,000</span><br><span class="price-unit" style="top:0;display:inline-block;margin-top:8px">（半年間・一括）</span></div>
-      <p class="price-tax">// 税込 ／ 月2回 × 各90分 × 6ヶ月（全12回）</p>
-      <ul class="price-feats">
-        <li><span class="pfc">▶</span>あなたのAI活用目標を、一緒に手を動かして構築</li>
-        <li><span class="pfc">▶</span>あなたの目標に合わせた完全個別カリキュラム</li>
-        <li><span class="pfc">▶</span>月2回 × 90分 × 6ヶ月（全12回）のマンツーマンセッション</li>
-        <li><span class="pfc">▶</span>セッション外もLINEで質問し放題</li>
-        <li><span class="pfc">▶</span>最新AIツールを業務レベルで習得</li>
-      </ul>
-      <div class="consult-box">🎁 まずは<strong>30分の無料相談</strong>からどうぞ。<br><span style="font-size:12px;opacity:0.6">お気軽にLINEからご連絡ください。</span></div>
-      <a href="https://s.lmes.jp/landing-qr/2009691274-w8c4nhfq?uLand=OOWMpL" target="_blank" class="btn-line" style="width:100%;justify-content:center">💬 公式LINEで無料相談する</a>
+    <div class="price-grid">
+
+      <!-- ライトプラン -->
+      <div class="price-wrap reveal">
+        <div class="price-badge">Light Plan</div>
+        <div class="price-name">ライトプラン</div>
+        <div><span class="price-num">¥99,000</span><br><span class="price-unit">（3ヶ月・一括）</span></div>
+        <p class="price-tax">// 税込 ／ 月1回 × 各90分（全3回）</p>
+        <ul class="price-feats">
+          <li><span class="pfc">▶</span>AIツールの基礎から丁寧にスタート</li>
+          <li><span class="pfc">▶</span>月1回 × 90分のマンツーマンセッション</li>
+          <li><span class="pfc">▶</span>あなたに合わせた個別カリキュラム設計</li>
+          <li><span class="pfc">▶</span>セッション当日のLINE質問対応</li>
+          <li><span class="pfc">▶</span>「まず試してみたい」方に最適</li>
+        </ul>
+        <div class="consult-box">🎁 まずは<strong>30分の無料相談</strong>からどうぞ。<br><span style="font-size:12px;opacity:0.6">お気軽にLINEからご連絡ください。</span></div>
+        <a href="https://s.lmes.jp/landing-qr/2009691274-w8c4nhfq?uLand=OOWMpL" target="_blank" class="btn-line" style="width:100%;justify-content:center">💬 無料相談する</a>
+      </div>
+
+      <!-- スタンダードプラン（人気） -->
+      <div class="price-wrap popular reveal">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-name">スタンダードプラン</div>
+        <div><span class="price-num">¥330,000</span><br><span class="price-unit">（半年間・一括）</span></div>
+        <p class="price-tax">// 税込 ／ 月2回 × 各90分 × 6ヶ月（全12回）</p>
+        <ul class="price-feats">
+          <li><span class="pfc">▶</span>あなたのAI活用目標を一緒に手を動かして構築</li>
+          <li><span class="pfc">▶</span>完全個別カリキュラム設計</li>
+          <li><span class="pfc">▶</span>月2回 × 90分 × 6ヶ月（全12回）</li>
+          <li><span class="pfc">▶</span>セッション外もLINEで質問し放題</li>
+          <li><span class="pfc">▶</span>最新AIツールを業務レベルで習得</li>
+        </ul>
+        <div class="consult-box">🎁 まずは<strong>30分の無料相談</strong>からどうぞ。<br><span style="font-size:12px;opacity:0.6">お気軽にLINEからご連絡ください。</span></div>
+        <a href="https://s.lmes.jp/landing-qr/2009691274-w8c4nhfq?uLand=OOWMpL" target="_blank" class="btn-line" style="width:100%;justify-content:center">💬 無料相談する</a>
+      </div>
+
+      <!-- プレミアプラン -->
+      <div class="price-wrap reveal">
+        <div class="price-badge">Premium Plan</div>
+        <div class="price-name">プレミアプラン</div>
+        <div><span class="price-num">¥550,000</span><br><span class="price-unit">（半年間・一括）</span></div>
+        <p class="price-tax">// 税込 ／ 月4回 × 各90分 × 6ヶ月（全24回）</p>
+        <ul class="price-feats">
+          <li><span class="pfc">▶</span>月4回の集中セッションで最速成長</li>
+          <li><span class="pfc">▶</span>初回に専用AIロードマップを作成</li>
+          <li><span class="pfc">▶</span>成果物・制作物のフィードバック無制限</li>
+          <li><span class="pfc">▶</span>優先LINEサポート（24時間以内返信）</li>
+          <li><span class="pfc">▶</span>収益化・外注代替まで伴走サポート</li>
+        </ul>
+        <div class="consult-box">🎁 まずは<strong>30分の無料相談</strong>からどうぞ。<br><span style="font-size:12px;opacity:0.6">お気軽にLINEからご連絡ください。</span></div>
+        <a href="https://s.lmes.jp/landing-qr/2009691274-w8c4nhfq?uLand=OOWMpL" target="_blank" class="btn-line" style="width:100%;justify-content:center">💬 無料相談する</a>
+      </div>
+
     </div>
   </div>
 </section>
